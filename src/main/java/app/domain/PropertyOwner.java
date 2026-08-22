@@ -1,19 +1,29 @@
-package domain;
+package app.domain;
 
-public class Tenant extends Person{
+public class PropertyOwner extends Person {
 
-    private String MaritalStatus;
-    private String profession;
+    private String ownerType;
+
+
+    public String getOwnerType() {
+        return ownerType;
+    }
+
+    public void setOwnerType(String ownerType) {
+        this.ownerType = ownerType;
+    }
 
     @Override
     public void create() {
         super.create();
     }
 
+
     @Override
     public void selectById(int id) {
         super.selectById(id);
     }
+
 
     @Override
     public void selectAll() {
