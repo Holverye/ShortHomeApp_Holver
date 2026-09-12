@@ -1,5 +1,7 @@
 package app.domain;
 
+import java.util.Date;
+
 public class PropertyOwner extends Person {
 
     private String ownerType;
@@ -7,6 +9,11 @@ public class PropertyOwner extends Person {
 
     public String getOwnerType() {
         return ownerType;
+    }
+
+    public PropertyOwner(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthDate, String ownerType) {
+        super(id, docType, name, lastName, phone, email, address, password, birthDate);
+        this.ownerType = ownerType;
     }
 
     public void setOwnerType(String ownerType) {
