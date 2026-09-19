@@ -1,22 +1,24 @@
 package app.view;
 
-import app.service.PropertyOwnerServiceImpl;
 import app.service.helpers.SetOwnerDocType;
 import app.service.helpers.SetOwnerType;
+import app.service.inputport.PropertyOwnerService;
 
 import java.util.Date;
 import java.util.Scanner;
 
-public class PropertyOwnerView {
+public class PropertyOwnerView{
 
     Scanner sc = new Scanner(System.in);
 
-    private final PropertyOwnerServiceImpl propertyOwnerServiceImpl;
+    private final PropertyOwnerService propertyOwnerService;
 
 
-    PropertyOwnerView(PropertyOwnerServiceImpl propertyOwnerServiceImpl){
-        this.propertyOwnerServiceImpl = propertyOwnerServiceImpl;
+    PropertyOwnerView(PropertyOwnerService propertyOwnerService){
+        this.propertyOwnerService = propertyOwnerService;
     }
+
+
 
 
 
@@ -44,7 +46,7 @@ public class PropertyOwnerView {
         System.out.println("Ingrese el tipo de propietario: 1. Direct Owner, 2. Property Manager, 3. Real Estate Agency");
         String ownerType = SetOwnerType.getOwnerType();
 
-        propertyOwnerServiceImpl.createPropertyOwner(id, docType, name, lastName, phone, email, address, password, birthDate, ownerType);
+        propertyOwnerService.createPropertyOwner(id, docType, name, lastName, phone, email, address, password, birthDate, ownerType);
 
     }
 

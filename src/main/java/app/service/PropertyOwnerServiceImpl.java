@@ -2,10 +2,12 @@ package app.service;
 
 import app.domain.PropertyOwner;
 import app.repository.PropertyOwnerRepository;
+import app.service.inputport.PropertyOwnerService;
 
 import java.util.Date;
+import java.util.List;
 
-public class PropertyOwnerServiceImpl {
+public class PropertyOwnerServiceImpl implements PropertyOwnerService {
 
 
     private final PropertyOwnerRepository propertyOwnerRepository;
@@ -20,7 +22,23 @@ public class PropertyOwnerServiceImpl {
         return propertyOwnerRepository.savePropertyOwner(propertyOwner);
     }
 
+    @Override
+    public PropertyOwner selectOwnerById(int id) {
+        return null;
+    }
 
+    @Override
+    public List<PropertyOwner> selectAllOwners() {
+        return List.of();
+    }
 
+    @Override
+    public PropertyOwner updatePropertyOwner(int id, String docType, String name, String lastName, String phone, String email, String address, String password, Date birthDate, String ownerType) {
+        return null;
+    }
 
+    @Override
+    public void deleteOwner(int id) {
+
+    }
 }
