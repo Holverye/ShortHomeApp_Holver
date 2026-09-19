@@ -1,9 +1,8 @@
 package app.view;
 
-import app.domain.enums.DocumentTypeEnum;
-import app.domain.enums.OwnerTypeEnum;
-import app.service.PropertyOwnerService;
+import app.service.PropertyOwnerServiceImpl;
 import app.service.helpers.SetOwnerDocType;
+import app.service.helpers.SetOwnerType;
 
 import java.util.Date;
 import java.util.Scanner;
@@ -12,11 +11,11 @@ public class PropertyOwnerView {
 
     Scanner sc = new Scanner(System.in);
 
-    private final PropertyOwnerService propertyOwnerService;
+    private final PropertyOwnerServiceImpl propertyOwnerServiceImpl;
 
 
-    PropertyOwnerView(PropertyOwnerService propertyOwnerService){
-        this.propertyOwnerService = propertyOwnerService;
+    PropertyOwnerView(PropertyOwnerServiceImpl propertyOwnerServiceImpl){
+        this.propertyOwnerServiceImpl = propertyOwnerServiceImpl;
     }
 
 
@@ -43,10 +42,9 @@ public class PropertyOwnerView {
         System.out.println("Ingrese la fecha de nacimiento del propietario (formato: yyyy-MM-dd)");
         Date birthDate = getBirthDateFromInput();
         System.out.println("Ingrese el tipo de propietario: 1. Direct Owner, 2. Property Manager, 3. Real Estate Agency");
-        String ownerType = getOwnerType();
+        String ownerType = SetOwnerType.getOwnerType();
 
-
-
+        propertyOwnerServiceImpl.createPropertyOwner(id, docType, name, lastName, phone, email, address, password, birthDate, ownerType);
 
     }
 
@@ -68,24 +66,5 @@ public class PropertyOwnerView {
 
 
 
-    public String getOwnerType(){
 
-        int option = 0;
-        String value = "";
-        switch (option){
-            case 1:
-                value = OwnerTypeEnum.DIRECT_OWNER.getValue();
-                break;
-            case 2:
-                value = OwnerTypeEnum.PROPERTY_MANAGER.getValue();
-                break;
-            case 3:
-                value = OwnerTypeEnum.REAL_ESTATE_AGENCY.getValue();
-                break;
-            default:
-                System.out.println("Opción inválida. Por favor, seleccione una opción válida.");
-                break;
-        }
-        return value;
-    }
 }

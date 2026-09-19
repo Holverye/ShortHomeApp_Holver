@@ -1,6 +1,6 @@
 package app.view;
 
-import app.service.PropertyOwnerService;
+import app.service.PropertyOwnerServiceImpl;
 
 import java.util.Scanner;
 
@@ -8,10 +8,10 @@ public class PropertyView {
 
     Scanner sc = new Scanner(System.in);
 
-    private final PropertyOwnerService propertyOwnerService;
+    private final PropertyOwnerServiceImpl propertyOwnerService;
 
-    PropertyView(PropertyOwnerService propertyOwnerService){
-        this.propertyOwnerService = propertyOwnerService;
+    PropertyView(PropertyOwnerServiceImpl propertyOwnerServiceImpl){
+        this.propertyOwnerService = propertyOwnerServiceImpl;
     }
 
 
